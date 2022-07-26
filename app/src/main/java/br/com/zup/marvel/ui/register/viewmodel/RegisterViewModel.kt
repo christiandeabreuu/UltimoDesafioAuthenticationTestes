@@ -1,5 +1,6 @@
 package br.com.zup.marvel.ui.register.viewmodel
 
+import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,10 +9,10 @@ import br.com.zup.marvel.EMAIL_ERROR_MESSAGE
 import br.com.zup.marvel.NAME_ERROR_MESSAGE
 import br.com.zup.marvel.PASSWORD_ERROR_MESSAGE
 import br.com.zup.marvel.domain.model.User
-import br.com.zup.marvel.domain.repository.AuthenticationRepository
+import br.com.zup.marvel.domain.repository.AuthenticationRepositoryFactory
 
-class RegisterViewModel: ViewModel() {
-    private val authenticationRepository = AuthenticationRepository()
+class RegisterViewModel : ViewModel() {
+    private val authenticationRepository = AuthenticationRepositoryFactory.create()
 
     private var _registerState = MutableLiveData<User>()
     val registerState: LiveData<User> = _registerState
@@ -24,7 +25,7 @@ class RegisterViewModel: ViewModel() {
             user.name.length < 3 -> {
                 _errorState.value = NAME_ERROR_MESSAGE
             }
-            user.email.isEmpty() -> {
+            Patterns.EMAIL_ADDRESS.matcher(user.email).matches().not() -> {
                 _errorState.value = EMAIL_ERROR_MESSAGE
             }
             user.password.length < 8 -> {

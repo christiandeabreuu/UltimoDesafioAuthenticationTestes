@@ -50,4 +50,11 @@ dependencies {
     //FIREBASE
     implementation platform('com.google.firebase:firebase-bom:30.3.1')
     implementation 'com.google.firebase:firebase-auth-ktx'
+
+    testImplementation "io.mockk:mockk:{version}"
+    testImplementation "io.mockk:mockk:1.12.4"
+    testImplementation 'org.robolectric:robolectric:4.8'
+    testImplementation 'androidx.test.ext:junit:1.1.3'
+    testImplementation 'androidx.test:core:1.4.0'
+    testImplementation 'androidx.arch.core:core-testing:2.1.0'
 }

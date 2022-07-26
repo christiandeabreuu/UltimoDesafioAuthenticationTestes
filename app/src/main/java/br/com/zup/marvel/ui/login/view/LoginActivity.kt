@@ -5,7 +5,10 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import br.com.zup.marvel.LOGIN
 import br.com.zup.marvel.LOGIN_ERROR_MESSAGE
+import br.com.zup.marvel.REGISTER
+import br.com.zup.marvel.USER_KEY
 import br.com.zup.marvel.databinding.ActivityLoginBinding
 import br.com.zup.marvel.domain.model.User
 import br.com.zup.marvel.ui.home.view.HomeActivity
@@ -24,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        supportActionBar?.title = LOGIN
         setClickButtonLogin()
         setClickButtonNewRegister()
         initObservers()
@@ -32,7 +35,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun goToHomePage(user: User) {
         val intent = Intent(this, HomeActivity::class.java).apply {
-            putExtra("user key", user)
+            putExtra(USER_KEY, user)
         }
         startActivity(intent)
     }

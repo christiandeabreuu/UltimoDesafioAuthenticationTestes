@@ -10,6 +10,7 @@
         android:id="@+id/et_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_16"
         android:layout_marginTop="96dp"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
@@ -25,6 +26,7 @@
         android:id="@+id/et_password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:layout_marginTop="8dp"
         android:hint="@string/senha"
         android:imeOptions="actionDone"
@@ -51,9 +53,10 @@
 
     <Button
         android:id="@+id/btn_login"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
+        android:layout_margin="@dimen/margin_16"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="64dp"
         android:backgroundTint="@color/red_700"
